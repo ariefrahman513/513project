@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <div id="back">
+        <canvas id="canvas" class="canvas-back"></canvas>
+        <div class="backRight">
+        </div>
+        <div class="backLeft">
+        </div>
+    </div>
+
+    <div id="slideBox">
+        <div class="topLayer">
+            <div class="right">
+                <div class="content">
+                    <h2>Login</h2>
+                    <form id="form-login" action="login" method="post">
+                        <div class="form-element form-stack">
+                            <label for="username-login" class="form-label">Username</label>
+                            <input id="username-login" type="text" name="username">
+                        </div>
+                        <div class="form-element form-stack">
+                            <label for="password-login" class="form-label">Password</label>
+                            <input id="password-login" type="password" name="password">
+                        </div>
+                        <div class="form-element form-submit">
+                            <button id="logIn" class="login" type="submit" name="login">Log In</button>
+                            <a href="register" id="goRight" class="login off button" name="signup">Sign Up</a>
+                            <p>
+                                {% if error %}
+                                <span class="hint"></span>
+                                <p class="error"><strong>Warning:</strong> {{ error }} </p>
+                                </span> {% endif %}
+
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.3/paper-full.min.js'></script>
+    <script src="{{ url_for('static',filename='styles/script.js') }}"></script>
+
+</body>
+
+</html>
